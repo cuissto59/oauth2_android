@@ -1,6 +1,5 @@
-package com.example.oauth;
+package com.example.oauth2;
 
-import android.content.res.Resources;
 import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,10 +27,10 @@ public class SecondActivity extends AppCompatActivity {
         id = findViewById(R.id.textId);
 
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(SecondActivity.this);
         if (acct != null) {
             String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
+            String personEmail = acct.getIdToken();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 

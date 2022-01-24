@@ -1,5 +1,6 @@
-package com.example.oauth;
+package com.example.oauth2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity  {
     SignInButton signin;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 0;
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,6 @@ public class MainActivity extends AppCompatActivity  {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             String authCode = account.getIdToken();
-            String authCode1 = account.getEmail();
             System.out.println("msg :" + authCode );
             POJO user = new POJO(authCode);
             System.out.println("msg :" + user.toString());
@@ -76,7 +77,6 @@ public class MainActivity extends AppCompatActivity  {
             // send ID token to server
             //JsonObject requestBody = new JsonObject();
             //requestBody.addProperty("idToken",authCode);
-            //System.out.println("request :" + requestBody.toString());
             Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
             PostUserCredentials postUserCredentials = retrofit.create(PostUserCredentials.class);
             Call<String> call = postUserCredentials.createUser(user);
@@ -84,18 +84,18 @@ public class MainActivity extends AppCompatActivity  {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
                     Toast.makeText(MainActivity.this,"yes it worked :"+response,Toast.LENGTH_SHORT).show();
-                    Log.w( "Body","signInBody = " + response.body());
+                   Log.w( "Body","signInBody = " + response.body());
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     Toast.makeText(MainActivity.this,"Somthing wrong" + t.getMessage(),Toast.LENGTH_SHORT).show();
-                }
+               }
             });
 
 
 
-            Intent intent =  new Intent(this,SecondActivity.class);
+            Intent intent =  new Intent(MainActivity.this,SecondActivity.class);
             startActivity(intent);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.

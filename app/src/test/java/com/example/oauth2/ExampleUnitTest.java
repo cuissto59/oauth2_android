@@ -1,4 +1,4 @@
-package com.example.oauth;
+package com.example.oauth2;
 
 import org.junit.Test;
 

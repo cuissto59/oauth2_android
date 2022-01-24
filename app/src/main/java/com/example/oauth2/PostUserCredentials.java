@@ -1,15 +1,11 @@
-package com.example.oauth;
+package com.example.oauth2;
 
-import com.google.gson.JsonObject;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
 
-import java.util.List;
-
 public interface PostUserCredentials{
 
-    @POST("signup")
+    @POST("idToken")
     Call<String> createUser( @Body POJO user );
 
 }

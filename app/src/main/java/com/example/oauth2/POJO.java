@@ -1,4 +1,4 @@
-package com.example.oauth;
+package com.example.oauth2;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
