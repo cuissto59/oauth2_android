@@ -10,7 +10,7 @@ import static com.google.android.gms.common.util.CollectionUtils.listOf;
 public class RetrofitInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL="https://localhost:8089/api/v1/users/";
+    private static final String BASE_URL="https://localhost:8089/api/v1/tasks/";
     private static final OkHttpClient okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
 
 

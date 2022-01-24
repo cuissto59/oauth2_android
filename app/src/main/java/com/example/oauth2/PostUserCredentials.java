@@ -5,7 +5,7 @@ import retrofit2.http.*;
 
 public interface PostUserCredentials{
 
-    @POST("idToken")
+    @GET("")
     Call<String> createUser( @Body POJO user );
 
 }
