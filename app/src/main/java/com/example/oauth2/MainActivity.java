@@ -77,21 +77,21 @@ public class MainActivity extends AppCompatActivity  {
             // send ID token to server
             //JsonObject requestBody = new JsonObject();
             //requestBody.addProperty("idToken",authCode);
-            Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
-            PostUserCredentials postUserCredentials = retrofit.create(PostUserCredentials.class);
-            Call<String> call = postUserCredentials.createUser(user);
-            call.enqueue(new Callback<String>() {
-                @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    Toast.makeText(MainActivity.this,"yes it worked :"+response,Toast.LENGTH_SHORT).show();
-                   Log.w( "Body","signInBody = " + response.body());
-                }
+            //Retrofit retrofit = RetrofitInstance.getRetrofitInstance();
+            //PostUserCredentials postUserCredentials = retrofit.create(PostUserCredentials.class);
+            //Call<String> call = postUserCredentials.createUser(user);
+            //call.enqueue(new Callback<String>() {
+              //  @Override
+               // public void onResponse(Call<String> call, Response<String> response) {
+                //    Toast.makeText(MainActivity.this,"yes it worked :"+response,Toast.LENGTH_SHORT).show();
+                 //  Log.w( "Body","signInBody = " + response.body());
+              //  }
 
-                @Override
-                public void onFailure(Call<String> call, Throwable t) {
-                    Toast.makeText(MainActivity.this,"Somthing wrong" + t.getMessage(),Toast.LENGTH_SHORT).show();
-               }
-            });
+                //@Override
+               // public void onFailure(Call<String> call, Throwable t) {
+                //    Toast.makeText(MainActivity.this,"Somthing wrong" + t.getMessage(),Toast.LENGTH_SHORT).show();
+             //  }
+            //});
 
 
 
